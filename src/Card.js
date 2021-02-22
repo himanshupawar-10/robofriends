@@ -7,7 +7,7 @@ function Card()
             <img alt='robot' src='https://robohash.org/JohnDoe?200x200'/>
             <div>
                 <h2>John Doe</h2>
-                <p>johndoe@gmail.com</p>
+                <p>johndo@gmail.com</p>
             </div>
         </div>
     )

@@ -4,20 +4,30 @@ import {robots} from './robots';
 import SearchBox from "./searchbox";
 
 class App extends Component
-{   
-
-    Change(event){
-        console.log(event.target.value);
-        
-
+{   constructor(){
+        super()
+        this.state={
+            robot:robots,
+            searchfield: ''
+        }
     }
-
+    Change = (event) => {
+        this.setState({searchfield : event.target.value})
+    }
+    
     render(){
+    this.state.robot= robots.filter(robots=>
+        {
+            return robots.name.toLowerCase()
+            .includes(
+                this.state.searchfield.toLowerCase())
+        })
+
     return(
         <div className='tc'>
             <h1>Robofriends</h1>
             <SearchBox searchChange={this.Change}/>
-            <CardList robots={robots}/>
+            <CardList robots={this.state.robot}/>
         </div>
         )
     }
